@@ -1,0 +1,21 @@
+Quiz File Import Guide
+
+The Quiz screen accepts either a JSON question file or a text-selectable PDF.
+
+JSON example:
+{
+  "quizName": "Bihar Police Mock Test 1",
+  "questions": [
+    {
+      "question": "भारत की राजधानी क्या है?",
+      "options": ["दिल्ली", "पटना", "जयपुर", "भोपाल"],
+      "answer": "A"
+    }
+  ]
+}
+
+Each question needs a question/question text, exactly four options, and an answer (A/B/C/D or exact option text). Supported aliases include text, q, choices, correct, correctAnswer and answerKey.
+
+PDF: text must be selectable (not just scanned page images). Questions should be numbered and have four A-D options plus an answer marker such as Answer: B, Ans. B, उत्तर: B, or सही उत्तर: B. PDF parsing is heuristic; review imported question count and quiz before use. Scanned PDFs need OCR, which is not included. PDF.js is loaded from a CDN, so PDF import needs internet access when the library has not been cached.
+
+Imported questions are saved locally on the device. Back up data regularly.

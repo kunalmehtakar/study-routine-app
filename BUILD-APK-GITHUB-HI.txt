@@ -1,0 +1,13 @@
+Study Routine ऐप की APK बिना Termux बनाने के चरण
+
+1. ZIP Extract करें।
+2. GitHub.com पर नई repository बनाएँ।
+3. ZIP के अंदर की सभी फाइलें repository के root में अपलोड करें। .github/workflows/build-apk.yml भी जरूरी है।
+4. Actions टैब खोलें।
+5. “Build Study Routine APK” चुनें और “Run workflow” दबाएँ।
+6. Build पूरा होने तक इंतजार करें। हरा टिक सफल बिल्ड दिखाता है।
+7. सफल run खोलें और Artifacts में “study-routine-debug-apk” डाउनलोड करें।
+8. डाउनलोड ZIP Extract करके app-debug.apk फोन में इंस्टॉल करें।
+
+यदि बिल्ड लाल/Failed हो तो Actions की error स्क्रीन भेजें।
+यह Debug APK है, Play Store का signed release नहीं।
