@@ -15,6 +15,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check web files
+        run: |
+          test -f www/index.html
+          test -f www/app.js
+          echo "Checking UTF-8 HTML..."
+          grep -n 'charset="UTF-8"' www/index.html
+          echo "Checking Hindi text..."
+          grep -n 'आज की तैयारी' www/index.html
+          grep -n 'पूरा' www/app.js
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -34,6 +44,11 @@ jobs:
 
       - name: Sync Capacitor
         run: npx cap sync android
+
+      - name: Verify copied HTML
+        run: |
+          test -f android/app/src/main/assets/public/index.html
+          grep -n 'आज की तैयारी' android/app/src/main/assets/public/index.html
 
       - name: Build APK
         run: |
